@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Evidence Vault — The Legal Outlaw</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/pin-gate.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="book-frame interior">
+        <div class="cover-author">The Legal Outlaw</div>
+        <h1 class="page-title">Evidence Vault</h1>
+        <p class="adjourn-kicker vault-kicker">Set all three tumblers inside the marked zone to unlock access.</p>
+
+        <section class="vault-panel" data-vault-game>
+            <div class="vault-instructions" aria-label="How to unlock">
+                <p><strong>1.</strong> Watch the moving gold bar.</p>
+                <p><strong>2.</strong> Press <strong>PICK TUMBLER</strong> when it is inside the highlighted band.</p>
+                <p><strong>3.</strong> Repeat for all three tumblers to unlock the sealed chapter.</p>
+            </div>
+
+            <div class="lock-interface">
+                <div class="tumbler">
+                    <div class="tumbler-target" aria-hidden="true"></div>
+                    <div class="indicator is-animating" data-indicator></div>
+                </div>
+                <div class="tumbler">
+                    <div class="tumbler-target" aria-hidden="true"></div>
+                    <div class="indicator is-animating" data-indicator></div>
+                </div>
+                <div class="tumbler">
+                    <div class="tumbler-target" aria-hidden="true"></div>
+                    <div class="indicator is-animating" data-indicator></div>
+                </div>
+            </div>
+
+            <div class="lock-controls">
+                <button type="button" class="adjourn-action lock-pick-btn" data-lock-btn>PICK TUMBLER</button>
+            </div>
+
+            <p class="lock-status" data-lock-status role="status" aria-live="polite">Awaiting first pick...</p>
+            <a href="chapter-27.html" class="adjourn-action lock-reward is-disabled" aria-disabled="true" data-lock-reward>Open Sealed Chapter</a>
+        </section>
+
+        <div class="page-nav">
+            <a href="contents.html">← Back to Index</a>
+            <a href="chapter-01.html">Begin Reading →</a>
+        </div>
+    </div>
+
+    <script src="assets/js/lock.js?v=2026030401"></script>
+    <script src="assets/js/adjourn.js?v=2026030404"></script>
+</body>
+</html>

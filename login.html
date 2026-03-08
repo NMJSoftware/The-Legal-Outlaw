@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Private Access — The Legal Outlaw</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="assets/js/pin-gate.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="book-frame">
+        <div class="cover-author">The Legal Outlaw</div>
+        <h1 class="chapter-title" style="margin-bottom: 12px;">Private Access</h1>
+
+        <section class="pin-panel">
+            <p class="pin-copy">Enter PIN to continue.</p>
+
+            <form class="pin-form" data-pin-form>
+                <label for="pin-input" class="pin-label">Access PIN</label>
+                <input
+                    id="pin-input"
+                    class="pin-input"
+                    type="password"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    maxlength="12"
+                    autocomplete="one-time-code"
+                    data-pin-input
+                    required
+                >
+                <p class="pin-error" data-pin-error role="alert"></p>
+                <button type="submit" class="adjourn-action">Enter Book</button>
+            </form>
+
+            <p class="pin-note">Access is shared privately for preview readers.</p>
+        </section>
+    </div>
+</body>
+</html>

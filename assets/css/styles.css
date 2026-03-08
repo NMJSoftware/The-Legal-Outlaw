@@ -1,67 +1,15 @@
 :root {
-    --bg: #333333;
+    --bg: #000000;
     --panel: #070707;
     --panel-soft: #0c0c0c;
     --gold: #c5a059;
-    --gold-soft: rgba(197, 160, 89, 0 28);
-    --gold-faint: rgba(197, 160, 89, 0 12);
+    --gold-soft: rgba(197, 160, 89, 0.28);
+    --gold-faint: rgba(197, 160, 89, 0.12);
     --text-main: #e9e9e9;
-    --text-muted: #a6a6a6;
-    --text-light: #d6d6d6;
+    --text-muted: #5d5d5d;
     --font-serif: 'Cormorant Garamond', serif;
     --font-title: 'Cinzel', serif;
     --font-sans: 'Montserrat', sans-serif;
-    --reader-surface-bg: linear-gradient(180deg, #020202 0%, #000 100%);
-    --reader-surface-border: rgba(197, 160, 89, 0.32);
-    --reader-text-color: #fff;
-    --reader-size: clamp(1.125rem, 0.7rem + 1vw, 1.25rem);
-    --reader-line-height: 1.5;
-}
-
-html[data-reader-theme='classic'] {
-    --reader-surface-bg: linear-gradient(180deg, #020202 0%, #000 100%);
-    --reader-surface-border: rgba(197, 160, 89, 0.32);
-    --reader-text-color: #fff;
-}
-
-html[data-reader-theme='contrast'] {
-    --reader-surface-bg: #000;
-    --reader-surface-border: rgba(255, 255, 255, 0.72);
-    --reader-text-color: #fff;
-}
-
-html[data-reader-theme='paper'] {
-    --reader-surface-bg: linear-gradient(180deg, #fff 0%, #f4f4f4 100%);
-    --reader-surface-border: rgba(0, 0, 0, 0.34);
-    --reader-text-color: #141414;
-}
-
-html[data-reader-size='small'] {
-    --reader-size: clamp(1rem, 0.74rem + 0.78vw, 1.125rem);
-}
-
-html[data-reader-size='standard'] {
-    --reader-size: clamp(1.125rem, 0.72rem + 0.98vw, 1.25rem);
-}
-
-html[data-reader-size='large'] {
-    --reader-size: clamp(1.25rem, 0.9rem + 1.05vw, 1.375rem);
-}
-
-html[data-reader-size='xl'] {
-    --reader-size: clamp(1.375rem, 1.03rem + 1.1vw, 1.5rem);
-}
-
-html[data-reader-spacing='normal'] {
-    --reader-line-height: 1.5;
-}
-
-html[data-reader-spacing='comfortable'] {
-    --reader-line-height: 1.7;
-}
-
-html[data-reader-spacing='wide'] {
-    --reader-line-height: 2;
 }
 
 * {
@@ -178,62 +126,14 @@ body.contents-page .book-frame::before {
     width: min(100%, 290px);
     margin: 0 auto 34px;
     position: relative;
-    display: grid;
-    place-items: center;
 }
-
-/* STACK VIDEO + IMAGE */
 
 .cover-seal video,
 .cover-seal img {
-    grid-area: 1 / 1;
     width: 100%;
     display: block;
     object-fit: contain;
-
-    filter:
-        brightness(1.05)
-        contrast(1.07)
-        drop-shadow(0 0 24px rgba(197,160,89,0.36));
-
-    transition:
-        opacity 1800ms ease,
-        transform 1800ms ease,
-        filter 1800ms ease;
-}
-
-/* START STATE */
-
-.cover-seal-video {
-    opacity: 1;
-    z-index: 2;
-}
-
-.cover-seal-image {
-    opacity: 0;
-    z-index: 1;
-    transform: scale(0.96);
-    filter: brightness(0.7);
-}
-/* STAGE 1 – VIDEO FADES TO BLACK */
-
-.cover-seal.is-fading .cover-seal-video {
-    opacity: 0;
-    transform: scale(1.02);
-    filter:
-        brightness(0)
-        blur(2px);
-}
-
-/* STAGE 2 – BADGE APPEARS */
-
-.cover-seal.is-settled .cover-seal-image {
-    opacity: 0.85;
-    transform: scale(1);
-    filter:
-        brightness(1.08)
-        contrast(1.1)
-        drop-shadow(0 0 30px rgba(197,160,89,0.45));
+    filter: brightness(1.05) contrast(1.07) drop-shadow(0 0 24px rgba(197, 160, 89, 0.36));
 }
 
 .cover-title,
@@ -625,14 +525,14 @@ body.contents-page .book-frame::before {
 
 .vault-instructions {
     border: 1px solid var(--gold-faint);
-    background: reba(0, 0, 0, 0.34);
+    background: rgba(0, 0, 0, 0.34);
     padding: 12px 14px;
     margin-bottom: 14px;
 }
 
 .vault-instructions p {
     margin: 0 0 6px;
-    color: #e3e3e3;
+    color: var(--text-main);
     font-size: 18px;
     line-height: 1.3;
 }
@@ -899,7 +799,7 @@ body.contents-page .book-frame::before {
 .chapter-top-nav a:hover,
 .chapter-adjourn-btn:hover {
     opacity: 1;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .chapter-adjourn-btn {
@@ -938,7 +838,7 @@ body.contents-page .book-frame::before {
 
 .adjourn-status {
     min-height: 16px;
-    color: var(--text-light);
+    color: var(--text-muted);
     font-family: var(--font-sans);
     font-size: 11px;
     letter-spacing: 1px;
@@ -1060,200 +960,8 @@ body.contents-page .book-frame::before {
     pointer-events: none;
 }
 
-.adjourn-action:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
-
 .adjourn-panel.is-storage-unavailable .adjourn-meta {
     color: var(--text-muted);
-}
-
-.settings-entry-panel {
-    border: 1px solid var(--gold-faint);
-    background:
-        radial-gradient(circle at 18% 22%, rgba(197, 160, 89, 0.14), transparent 45%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.3));
-    padding: 12px 14px;
-    margin: 0 0 14px;
-}
-
-.settings-entry-kicker {
-    color: var(--gold);
-    font-family: var(--font-title);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-    margin-bottom: 4px;
-}
-
-.settings-entry-copy {
-    color: var(--text-main);
-    font-size: 19px;
-    line-height: 1.25;
-    margin-bottom: 10px;
-}
-
-.settings-entry-link {
-    display: inline-block;
-}
-
-.book-frame.interior.settings-layout {
-    width: min(94vw, 820px);
-    height: min(90vh, 860px);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.settings-header .page-title {
-    margin-bottom: 6px;
-}
-
-.settings-lead {
-    color: var(--gold);
-    font-family: var(--font-title);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-    text-align: center;
-    margin-bottom: 14px;
-}
-
-.reader-settings-panel {
-    flex: 1;
-    min-height: 0;
-    border: 1px solid var(--gold-faint);
-    background:
-        radial-gradient(circle at 14% 14%, rgba(197, 160, 89, 0.14), transparent 42%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.32));
-    padding: 16px;
-    overflow: auto;
-}
-
-.settings-title {
-    color: var(--gold);
-    font-family: var(--font-title);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-size: 14px;
-    margin-bottom: 6px;
-}
-
-.settings-copy {
-    color: var(--text-main);
-    font-size: 20px;
-    line-height: 1.28;
-    margin-bottom: 14px;
-}
-
-.reader-settings-form {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-}
-
-.settings-group {
-    border: 1px solid var(--gold-faint);
-    background: rgba(0, 0, 0, 0.3);
-    padding: 12px 10px;
-    min-width: 0;
-}
-
-.settings-group legend {
-    color: var(--gold);
-    font-family: var(--font-title);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    padding: 0 4px;
-}
-
-.settings-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-main);
-    font-size: 21px;
-    line-height: 1.2;
-    padding: 4px 0;
-    cursor: pointer;
-}
-
-.settings-option input[type='radio'] {
-    accent-color: var(--gold);
-    width: 16px;
-    height: 16px;
-    flex: 0 0 auto;
-}
-
-.settings-toolbar {
-    margin-top: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.settings-status {
-    color: rgba(233, 233, 233, 0.82);
-    font-family: var(--font-sans);
-    font-size: 12px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.settings-status[data-tone='warn'] {
-    color: #e5b4b4;
-}
-
-.settings-preview {
-    margin-top: 16px;
-    border-top: 1px solid var(--gold-faint);
-    padding-top: 14px;
-}
-
-.settings-preview-kicker {
-    color: var(--gold);
-    font-family: var(--font-title);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-}
-
-.settings-preview-surface {
-    border: 1px solid var(--reader-surface-border);
-    background: var(--reader-surface-bg);
-    min-height: 180px;
-    padding: 14px;
-}
-
-.settings-preview-text {
-    font-size: var(--reader-size);
-    line-height: var(--reader-line-height);
-    color: var(--reader-text-color);
-}
-
-.settings-preview-text p + p {
-    margin-top: 0.85em;
-}
-
-.settings-preview-quote {
-    margin: 1em 0 0;
-    padding-left: 0.75em;
-    border-left: 2px solid var(--reader-surface-border);
-    font-style: italic;
-}
-
-.settings-preview-cite {
-    margin-top: 0.45em;
-    font-family: var(--font-title);
-    font-size: 0.65em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.88;
 }
 
 .chapter-reader {
@@ -1288,11 +996,6 @@ body.contents-page .book-frame::before {
     padding: clamp(12px, 1.2vw, 20px);
     scrollbar-width: thin;
     scrollbar-color: var(--gold-soft) transparent;
-}
-
-.chapter-layout .chapter-page:not(.chapter-image-page) {
-    border-color: var(--reader-surface-border);
-    background: var(--reader-surface-bg);
 }
 
 .chapter-page::-webkit-scrollbar {
@@ -1353,10 +1056,9 @@ body.contents-page .book-frame::before {
     display: none;
 }
 
-.chapter-layout .body-text {
-    font-size: var(--reader-size);
-    line-height: var(--reader-line-height);
-    color: var(--reader-text-color);
+.body-text {
+    font-size: clamp(20px, 1.48vw, 28px);
+    line-height: 1.48;
     max-width: 100%;
 }
 
@@ -1400,7 +1102,7 @@ body.contents-page .book-frame::before {
 }
 
 .page-indicator {
-    color: rgba(233,233,233,0.55);
+    color: var(--text-muted);
     font-family: var(--font-sans);
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -1445,28 +1147,6 @@ body.contents-page .book-frame::before {
     .adjourn-actions {
         justify-content: flex-start;
         flex-wrap: wrap;
-    }
-
-    .settings-entry-copy {
-        font-size: 17px;
-    }
-
-    .reader-settings-form {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    .settings-copy {
-        font-size: 18px;
-    }
-
-    .settings-option {
-        font-size: 19px;
-    }
-
-    .settings-preview-surface {
-        min-height: 150px;
-        padding: 12px;
     }
 
     .contents-grid {
@@ -1543,10 +1223,6 @@ body.contents-page .book-frame::before {
         padding: 10px 6px 6px;
     }
 
-    .book-frame.interior.settings-layout {
-        padding: 16px 8px 10px;
-    }
-
     .cover-author {
         font-size: 11px;
         letter-spacing: 4px;
@@ -1611,10 +1287,9 @@ body.contents-page .book-frame::before {
         padding: 10px;
     }
 
-    .chapter-layout .body-text {
-        font-size: var(--reader-size);
-        line-height: var(--reader-line-height);
-        color: var(--reader-text-color);
+    .body-text {
+        font-size: clamp(18px, 4.95vw, 23px);
+        line-height: 1.47;
     }
 
     .chapter-page.has-dropcap .body-text p:first-child::first-letter {
